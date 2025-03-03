@@ -20,6 +20,7 @@ const AuthButton = () => {
         setIsAuthenticated(false);
         toast.success("Logout successfully.")
         navigate('/'); // Redirect to home page after logout
+        window.location.reload();
     };
 
     return (

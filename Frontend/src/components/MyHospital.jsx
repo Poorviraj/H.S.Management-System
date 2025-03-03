@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { toast } from "react-toastify";
 import axios from 'axios'
 import { endPoints } from '../utils/endpoints';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -30,7 +31,7 @@ const MyHospital = () => {
                 throw new Error(res.data.message);
             }
 
-            console.log(res.data.data);
+            // console.log(res.data.data);
             setHospital(res.data.data);
         } catch (error) {
             console.error(error);
@@ -60,10 +61,11 @@ const MyHospital = () => {
                 }
     
                 console.log(res.data);
-                alert(res.data.message);
+                toast.success(res.data.message);
                 await fetchData();
             } catch (error) {
                 console.error(error);
+                toast.error(error.message || 'Failed to delete hospital data');
                 setError(error.message || 'Failed to Delete hospital');
             } finally {
                 setLoading(false); // End loading

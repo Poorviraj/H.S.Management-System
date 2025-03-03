@@ -64,7 +64,47 @@ const Home = () => {
                 </div>
             </div>
 
-            
+
+            {/* Features Section */}
+            <section id="features" className="py-16 bg-white flex mx-auto max-w-[80%]">
+                <div className="container mx-auto text-center">
+                    <h3 className="text-3xl font-bold text-gray-800 mb-8">Our Features</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {/* Feature 1 */}
+                        <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div className="bg-blue-500 h-16 w-16 mx-auto rounded-full mb-4 flex items-center justify-center text-white text-2xl">
+                                P
+                            </div>
+                            <h4 className="text-xl font-semibold mb-2">Patient Management</h4>
+                            <p className="text-gray-600">
+                                Efficiently manage patient records, appointments, and history.
+                            </p>
+                        </div>
+                        {/* Feature 2 */}
+                        <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div className="bg-blue-500 h-16 w-16 mx-auto rounded-full mb-4 flex items-center justify-center text-white text-2xl">
+                                D
+                            </div>
+                            <h4 className="text-xl font-semibold mb-2">Doctor Scheduling</h4>
+                            <p className="text-gray-600">
+                                Organize doctor schedules and availability seamlessly.
+                            </p>
+                        </div>
+                        {/* Feature 3 */}
+                        <div className="p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition">
+                            <div className="bg-blue-500 h-16 w-16 mx-auto rounded-full mb-4 flex items-center justify-center text-white text-2xl">
+                                B
+                            </div>
+                            <h4 className="text-xl font-semibold mb-2">Billing System</h4>
+                            <p className="text-gray-600">
+                                Simplify billing and insurance claims with automation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
 
 
         </div>
