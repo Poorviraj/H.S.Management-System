@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from "react-toastify";
 import axios from 'axios';
 import { endPoints } from '../utils/endpoints';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -69,10 +70,11 @@ const AddDetails = () => {
       }
 
       console.log('Details updated:', res.data);
-      alert('Hospital details updated successfully!');
+      toast.success('Hospital details updated successfully!');
       navigate('/myHospitals');
     } catch (err) {
       console.error('Error:', err.response?.data || err.message);
+      toast.error(err);
       setError(err.response?.data?.message || 'Failed to update hospital details');
     } finally {
       setLoading(false);

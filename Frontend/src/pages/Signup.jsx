@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from "react-toastify";
 import axios from 'axios'
 import { endPoints } from '../utils/endpoints';
 import { Link, useNavigate } from 'react-router-dom';
@@ -26,7 +27,7 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
+        // console.log('Form submitted:', formData);
 
         try {
 
@@ -38,15 +39,15 @@ const Signup = () => {
             });
 
             if (!res.data.success) {
-                alert(res.data.message);
+                toast.error(res.data.message);
             }
-            console.log(res.data);
+            // console.log(res.data);
             const { token,role } = res.data;
             const name = formData.name.split(" ")[0];
             localStorage.setItem("name",name);
             localStorage.setItem("token", token);
             localStorage.setItem("role", role);
-
+            toast.success(res.data.message);
             if(role === "Hospital_Admin"){
                 navigate('/myHospitals')
             } else{
@@ -54,7 +55,7 @@ const Signup = () => {
             }
 
         } catch (error) {
-            alert(error);
+            toast.error(error);
         }
 
         setFormData({

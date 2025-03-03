@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from "react-toastify";
 import React, { useState, useEffect } from 'react';
 
 const AuthButton = () => {
@@ -17,6 +18,7 @@ const AuthButton = () => {
         localStorage.removeItem('name');
         localStorage.removeItem('role');
         setIsAuthenticated(false);
+        toast.success("Logout successfully.")
         navigate('/'); // Redirect to home page after logout
     };
 

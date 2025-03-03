@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from "react-toastify";
 import axios from 'axios';
 import { endPoints } from '../utils/endpoints';
 import { useNavigate } from 'react-router-dom';
@@ -68,10 +69,12 @@ const CreateHospital = () => {
         throw new Error(res.data.message);
       }
 
-      console.log('Hospital created:', res.data.data);
+      // console.log('Hospital created:', res.data.data);
+      toast.success(res.data.message);
       navigate('/myHospitals');
     } catch (err) {
       console.error(err);
+      toast.error(err.message);
       setError(err.message || 'Failed to create hospital');
     } finally {
       setLoading(false);

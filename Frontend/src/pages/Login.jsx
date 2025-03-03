@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast } from "react-toastify";
 import axios from 'axios'
 import { endPoints } from '../utils/endpoints';
 import { Link, useNavigate } from 'react-router-dom';
@@ -39,10 +40,9 @@ const Login = () => {
         password: formData.password
       })
 
-      console.log(res.data);
 
       if (!res.data.success) {
-        alert(res.data.message);
+        toast.error(res.data.message);
       }
 
       console.log(res.data.message);
@@ -51,7 +51,7 @@ const Login = () => {
       localStorage.setItem("name", name);
       localStorage.setItem("token", token);
       localStorage.setItem("role", role);
-      alert(res.data.message);
+      toast.success(res.data.message);
 
       if (role === "Hospital_Admin") {
         navigate('/myHospitals')
@@ -66,7 +66,7 @@ const Login = () => {
       });
     } catch (error) {
       console.error('Login error:', error);
-      alert(error);
+      toast.error(error);
     } finally {
       setIsLoading(false);
     }
