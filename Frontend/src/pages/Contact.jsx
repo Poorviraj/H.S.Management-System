@@ -161,7 +161,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="mt-6 w-full bg-purple-600 text-white py-3 px-4 rounded-md hover:bg-purple-700 disabled:bg-purple-400 transition duration-300 flex items-center justify-center"
+                className="mt-6 w-full cursor-pointer bg-purple-600 text-white py-3 px-4 rounded-md hover:bg-purple-700 disabled:bg-purple-400 transition duration-300 flex items-center justify-center"
               >
                 {isSubmitting ? (
                   <>
